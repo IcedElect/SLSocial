@@ -593,17 +593,24 @@ abbr.time {
     word-wrap: break-word;
 }
 
-.post .like {
+.post .actions{
+    margin-top: 6px;
+}
+.post .action {
     display: inline-block;
-    margin: 0px -2px 0px -2px;
+    margin-right: 5px;
+    color: #999;
+}
+.post .action:hover{
+    color: #333;
+    cursor: pointer;
+}
+.post .action.comments {
+    display: inline-block;
+    margin-right: 0px;
 }
 
-.post .comment {
-    display: inline-block;
-    margin: 0px -4px 0px 0px;
-}
-
-.post .red {
+.post .action.active i {
     color: #d2383b;
 }
 

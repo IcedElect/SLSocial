@@ -74,8 +74,8 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db = array(
-	'dsn'	=> 'mysql:host=localhost; dbname=new_social; charset=utf8;',
-	'hostname' => 'localhost',
+	'dsn'	=> 'mysql:host=127.0.0.1; dbname=new_social; charset=utf8;',
+	'hostname' => '127.0.0.1',
 	'username' => 'root',
 	'password' => '',
 	'database' => '',

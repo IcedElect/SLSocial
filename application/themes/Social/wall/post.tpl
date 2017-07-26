@@ -16,20 +16,25 @@
         <div class="post-content">
             {$post->content}
         </div>
-        <div style="border: 1px solid black; padding: 0px 0px">
-            <span>
-                <i class="demo-icon icon-heart like {if $post->is_liked}red{/if}"></i>
-                {$post->likes_count}
-            </span>
-            <span>
+        <div class="actions">
+            <div class="action like {if $post->is_liked}active{/if}">
+                <i class="demo-icon icon-heart"></i>
+                <span>{$post->likes_count}</span>
+            </div>
+            <div class="action share {if true}active{/if}">
                 <!-- {* {if $post->is_shared} *} -->
-                <i class="demo-icon {if true}icon-bullhorn{else}icon-megaphone{/if} share {if true}red{/if}"></i>
+                <i class="demo-icon icon-megaphone"></i>
                 <!-- {* {$post->share_count}  *} -->
-            </span>
-            <span class="flr">
-                <span class="comment">{$post->comments_count}</span>
-            <i class="demo-icon icon-comment-2"></i>
-            </span>
+                <span></span>
+            </div>
+            <div class="action comments flr">
+                {if $post->comments_count > 0}<span>{$post->comments_count}</span>{/if}
+                <i class="demo-icon icon-comment-2"></i>
+            </div>
         </div>
+        {get_comments id={$post->id}}
+        {foreach from=$comments item=$comment}
+            {$comment->text}
+        {/foreach}
     </div>
 </div>
