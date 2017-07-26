@@ -1,0 +1,58 @@
+DirectoryIndex index.php
+
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|robots\.txt)
+
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+RedirectMatch 404 /\.svn(/|$)
+
+
+RewriteCond %{REQUEST_FILENAME} !-f	
+RewriteCond %{REQUEST_FILENAME} !-d		
+
+Options All -Indexes
+<Files "/log">
+Require all denied
+</Files>
+
+#RewriteCond $1 !^(index\.php|system|images|themes|stylesheets|javascript|css|js|robots\.txt|favicon\.ico)
+#RewriteCond %{REQUEST_URI}^ckfinder [OR] !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+# If-Modified-Since (if php is not installed as cgi then comment lines below)
+RewriteRule .* - [E=HTTP_IF_MODIFIED_SINCE:%{HTTP:If-Modified-Since}]
+RewriteRule .* - [E=HTTP_IF_NONE_MATCH:%{HTTP:If-None-Match}]
+
+#Header unset ETag
+#FileETag None
+FileETag MTime Size
+
+#кэширование flash и картинок на год
+#<FilesMatch ".(flv|swf|ico|gif|jpg|jpeg|png|woff|ttf)$">
+#Header set Cache-Control "max-age=31536000"
+#</FilesMatch>
+
+#Gzip
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript application/javascript text/text font/opentype font/truetype font/eot
+</ifmodule>
+#End Gzip
+
+# BEGIN EXPIRES
+<IfModule mod_expires.c>
+#    ExpiresActive On
+#    ExpiresDefault "access plus 10 days"
+#    ExpiresByType text/css "access plus 1 week"
+#    ExpiresByType text/plain "access plus 1 month"
+#    ExpiresByType image/gif "access plus 1 month"
+#    ExpiresByType image/png "access plus 1 month"
+#    ExpiresByType image/jpeg "access plus 1 month"
+ #   ExpiresByType application/x-javascript "access plus 1 month"
+ #   ExpiresByType application/javascript "access plus 1 week"
+#    ExpiresByType application/x-icon "access plus 1 year"
+</IfModule>
+# END EXPIRES

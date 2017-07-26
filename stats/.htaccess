@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Members Only"
+AuthUserFile /media/second_hdd1/isp_clients/client5/web26/web/stats/.htpasswd_stats
+require valid-user
