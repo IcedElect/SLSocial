@@ -17,19 +17,29 @@
             {$post->content}
         </div>
         <div class="actions">
-            <div class="action like {if $post->is_liked}active{/if}">
-                <i class="demo-icon icon-heart"></i>
-                <span>{$post->likes_count}</span>
+            <div class="action like">
+                {* {if true}  == is_liked    *}
+                {* {if false} == is_disliked *}
+                <span class="like circle green {if true}active{/if}"><i class="icon-angle-up"></i></span>&nbsp;
+                {if $post->likes_count > 0}
+                    <span class="small circle {if true}green active{/if} {if false}active{/if}">{$post->likes_count}</span>&nbsp;
+                {/if}
+                <span class="dislike circle {if false}active{/if}"><i class="icon-angle-down"></i></span>
             </div>
-            <div class="action share {if true}active{/if}">
+            <div class="action share {if false}active{/if}">
                 <!-- {* {if $post->is_shared} *} -->
-                <i class="demo-icon icon-megaphone"></i>
-                <!-- {* {$post->share_count}  *} -->
+                <i class="circle icon-forward-outline"></i>
+                <!-- {* {if $post->share_count > 0} must be inserted instead of {if false} *} -->
+                {if false}
+                    <span class="small circle">{* {$post->share_count} *}</span>
+                {/if}
                 <span></span>
             </div>
             <div class="action comments flr">
-                {if $post->comments_count > 0}<span>{$post->comments_count}</span>{/if}
-                <i class="demo-icon icon-comment-2"></i>
+                {if $post->comments_count > 0}
+                    <span class="small circle">{$post->comments_count}</span>&nbsp;
+                {/if}
+                <i class="comment circle icon-comment-2"></i>
             </div>
         </div>
         {get_comments id={$post->id}}
