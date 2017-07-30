@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2017-07-12 11:21:42
+/* Smarty version 3.1.29, created on 2017-07-30 12:40:59
   from "Z:\home\sl.ru\www\application\themes\Social\main.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5966064614cd67_71179825',
+  'unifunc' => 'content_597dd3db196d42_61848599',
   'file_dependency' => 
   array (
     'ca86eae801c42bfd607e21bd8b49ae345ad34bb3' => 
     array (
       0 => 'Z:\\home\\sl.ru\\www\\application\\themes\\Social\\main.tpl',
-      1 => 1499846157,
+      1 => 1501418445,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:sys/js_css_inc.tpl' => 1,
   ),
 ),false)) {
-function content_5966064614cd67_71179825 ($_smarty_tpl) {
+function content_597dd3db196d42_61848599 ($_smarty_tpl) {
 if (!is_callable('smarty_function_get_avatar')) require_once 'Z:\\home\\sl.ru\\www\\application\\third_party\\Smarty-3.1.29\\libs\\plugins\\function.get_avatar.php';
 ?>
 <!DOCTYPE html>

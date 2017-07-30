@@ -30,13 +30,13 @@ function onCtrlEnter(ev, handler) {
 }
 
 $(function(){
-    $('.wall').infinitescroll({
+    /*$('.wall').infinitescroll({
         navSelector  : "div.nav",
         nextSelector : "div.nav a:first",
         itemSelector : ".wall .post"
-    });
+    });*/
 
-    jQuery("abbr.timeago").timeago();
+    //jQuery("abbr.timeago").timeago();
 })
 function wall(){
     var post_attaches = [];
@@ -133,7 +133,7 @@ function wall(){
         event.preventDefault();
         $.ajax({
             type: 'POST',
-            url: '/post/'+id+'/like/'+type,
+            url: '/ajax/post/like/'+id+'/'+type,
             data: {},
             beforeSend: function () {
                 
@@ -141,26 +141,26 @@ function wall(){
             success: function (data){
                 data = eval('('+data+')');
                 if(data.response != false){
-                    var likes = $(".post[data-id="+id+"] span.likes_count"),
-                        dislikes = $(".post[data-id="+id+"] span.dislikes_count"),
+                    var likes = $(".post[data-id="+id+"] span.like"),
+                        dislikes = $(".post[data-id="+id+"] span.dislike"),
+                        rating = $(".post[data-id="+id+"] span.rating"),
                         likes_count = data.response['likes_count'],
+                        rating_count = data.response['rating_count'],
                         dislikes_count = data.response['dislikes_count'];
-
-                    if(likes_count == 0) likes_count = "";
-                    if(dislikes_count == 0) dislikes_count = "";
-                    likes.html(likes_count);
-                    dislikes.html(dislikes_count);
-
+                    rating.html(rating_count);
+                    
                     if(type == 0){
-                        likes.parent().addClass('selected');
-                        dislikes.parent().removeClass('selected');
-                    }else{
-                        likes.parent().removeClass('selected');
-                        dislikes.parent().addClass('selected');
+                        likes.addClass('active');
+                        dislikes.removeClass('active');
                     }
+                    if(type == 1){
+                        likes.removeClass('active');
+                        dislikes.addClass('active');
+                    }
+
                     if('remove' in data){
-                        likes.parent().removeClass('selected');
-                        dislikes.parent().removeClass('selected');
+                        likes.removeClass('active');
+                        dislikes.removeClass('active');
                     }
                 }else{
                     if('error' in data)

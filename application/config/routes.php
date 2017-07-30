@@ -58,3 +58,4 @@ $route['user/(:any)'] = 'users/$1';
 $route['@'] = 'users/profile';
 $route['@(:any)'] = 'users/profile/$1';
 $route['ajax/(:any)/(:any)/(:any)'] = 'ajax_$1/$2/$3';
+$route['ajax/(:any)/(:any)/(:num)/(:num)'] = 'ajax_$1/$2/$3/$4';

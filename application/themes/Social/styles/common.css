@@ -593,57 +593,65 @@ abbr.time {
     word-wrap: break-word;
 }
 
-.post .actions {
-    margin-top: 6px;
+.actions {
+    margin-top: 10px;
     padding: 4px 0 4px 0;
+    display: flex;
 }
-.post .action {
+.actions .spacer{
+    flex: 1;
+}
+.actions .action {
     display: inline-block;
     margin-right: 5px;
     color: #999;
 }
-.post .action:hover {
+.actions .action:hover {
     color: #333;
     cursor: pointer;
 }
-.post .action.comments {
+.actions .action.comments {
     display: inline-block;
     margin-right: 0px;
 }
 
-.post .action.active i,
-.post .action .active i {
+.actions .action.active i,
+.actions .action .active i {
     color: white;
 }
 
-.post .action .circle {
+.actions .action .circle {
+    padding: 0px;
     display: inline-block;
     text-align: center;
     box-shadow: 0 0 2px #999;
     border-radius: 50%;
     width: 32px;
     height: 32px;
-    padding: 6px;
+    line-height: 30px;
+    margin: 0px 5px;
 }
+.actions .action .circle.like{margin-left: 0px;}
+.actions .action .circle.comment{margin-right: 0px;}
 
-.post .action .circle.small {
+.actions .action .circle.small {
     width: 18px;
     height: 18px;
     padding: 0px;
 }
 
-.post .action .circle:hover {
+.actions .action .circle:hover {
     box-shadow: 0 0 2px #333;
 }
 
-.post .action .circle.active,
-.post .action.active .circle {
+.actions .action .circle.active,
+.actions .action.active .circle {
     color: white;
     background-color: #d2383b;
 }
 
-.post .action .circle.active.green,
-.post .action.active .circle.green {
+.actions .action .circle.active.green,
+.actions .action.active .circle.green {
     background-color: #64DD17;
 }
 

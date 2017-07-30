@@ -139,6 +139,17 @@ class Default_model extends CI_Model
         }
     }
 
+    function saveWhere($where, $aData)
+    {
+        if (!$where) return false;
+        $res = $this->db->update($this->table, $aData, $where);
+        if (!$res) {
+            return false;
+        } else {
+            return $res;
+        }
+    }
+
     function isValidLogin($fp_sLogin, $fp_nId = '')
     {
         if (!$fp_sLogin) return false;

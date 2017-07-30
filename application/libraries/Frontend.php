@@ -44,6 +44,7 @@ class Frontend
             $this->add_js('scripts/jquery.timeago.js');
             $this->add_js('scripts/jquery.timeago.ru.js');
             $this->add_js('scripts/nav.js');
+            $this->add_js('scripts/wall.js');
             $this->add_js('scripts/popup.js');
             $this->add_js('scripts/users.js');
             $this->add_js('scripts/common.js');
