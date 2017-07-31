@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2017-07-30 12:43:56
+/* Smarty version 3.1.29, created on 2017-07-31 18:27:49
   from "Z:\home\sl.ru\www\application\themes\Social\wall\post.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_597dd48c4b4378_57201406',
+  'unifunc' => 'content_597f76a5c9d012_33786721',
   'file_dependency' => 
   array (
     'c17316cb6184c33cba9cada1890d17e150f9cd12' => 
     array (
       0 => 'Z:\\home\\sl.ru\\www\\application\\themes\\Social\\wall\\post.tpl',
-      1 => 1501418635,
+      1 => 1501525667,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_597dd48c4b4378_57201406 ($_smarty_tpl) {
+function content_597f76a5c9d012_33786721 ($_smarty_tpl) {
 if (!is_callable('smarty_function_get_avatar')) require_once 'Z:\\home\\sl.ru\\www\\application\\third_party\\Smarty-3.1.29\\libs\\plugins\\function.get_avatar.php';
 if (!is_callable('smarty_modifier_date_format')) require_once 'Z:\\home\\sl.ru\\www\\application\\third_party\\Smarty-3.1.29\\libs\\plugins\\modifier.date_format.php';
 if (!is_callable('smarty_function_get_comments')) require_once 'Z:\\home\\sl.ru\\www\\application\\third_party\\Smarty-3.1.29\\libs\\plugins\\function.get_comments.php';
@@ -111,6 +111,78 @@ if ($__foreach_comment_0_saved_item) {
 $_smarty_tpl->tpl_vars['comment'] = $__foreach_comment_0_saved_item;
 }
 ?>
+
+
+
+
+
+
+        <!--
+
+        <div class="send-post-form send-comment">
+                <div class="avatar middle">
+                    <?php echo smarty_function_get_avatar(array('id'=>$_smarty_tpl->tpl_vars['oUser']->value->id),$_smarty_tpl);?>
+
+                </div>
+                <div onkeypress="onCtrlEnter(event, this);" class="send-form-area <?php if (!$_smarty_tpl->tpl_vars['oUser']->value->id) {?>login-button<?php }?>" contenteditable="true" placeholder="Написать комментарий"></div>
+                <div class="buttons">
+                    <button class="fl-r send-button icon icon-paper-plane"></button>
+                </div>
+            </div>
+            <div class="comments-list">
+                <?php
+$_from = $_smarty_tpl->tpl_vars['comments']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$__foreach_comment_1_saved_item = isset($_smarty_tpl->tpl_vars['comment']) ? $_smarty_tpl->tpl_vars['comment'] : false;
+$__foreach_comment_1_saved_key = isset($_smarty_tpl->tpl_vars['c']) ? $_smarty_tpl->tpl_vars['c'] : false;
+$_smarty_tpl->tpl_vars['comment'] = new Smarty_Variable();
+$_smarty_tpl->tpl_vars['c'] = new Smarty_Variable();
+$_smarty_tpl->tpl_vars['comment']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['c']->value => $_smarty_tpl->tpl_vars['comment']->value) {
+$_smarty_tpl->tpl_vars['comment']->_loop = true;
+$__foreach_comment_1_saved_local_item = $_smarty_tpl->tpl_vars['comment'];
+?>
+                <div class="comment">
+                    <div class="avatar middle">
+                        <?php echo smarty_function_get_avatar(array('id'=>$_smarty_tpl->tpl_vars['comment']->value->author_id),$_smarty_tpl);?>
+
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <a href="#" class="name"><?php echo $_smarty_tpl->tpl_vars['comment']->value->fname;?>
+ <?php echo $_smarty_tpl->tpl_vars['comment']->value->lname;?>
+</a>
+                            <span><abbr title="<?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['comment']->value->date,"%Y-%m-%d %H:%I:%S");?>
+" class="time"></abbr></span>
+                            <span class="spacer"></span>
+                            <div class="actions">
+                                <button class="icon fa icon-dot-3"></button>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <?php echo $_smarty_tpl->tpl_vars['comment']->value->text;?>
+
+                        </div>
+                    </div>
+                </div>
+                <?php
+$_smarty_tpl->tpl_vars['comment'] = $__foreach_comment_1_saved_local_item;
+}
+if ($__foreach_comment_1_saved_item) {
+$_smarty_tpl->tpl_vars['comment'] = $__foreach_comment_1_saved_item;
+}
+if ($__foreach_comment_1_saved_key) {
+$_smarty_tpl->tpl_vars['c'] = $__foreach_comment_1_saved_key;
+}
+?>
+            </div>
+        -->
+
+
+
+
     </div>
 </div>
 <?php }

@@ -53,5 +53,49 @@
         {foreach from=$comments item=$comment}
             {*{$comment->text}*}
         {/foreach}
+
+
+
+
+
+
+        <!--
+
+        <div class="send-post-form send-comment">
+                <div class="avatar middle">
+                    {get_avatar id=$oUser->id}
+                </div>
+                <div onkeypress="onCtrlEnter(event, this);" class="send-form-area {if !$oUser->id}login-button{/if}" contenteditable="true" placeholder="Написать комментарий"></div>
+                <div class="buttons">
+                    <button class="fl-r send-button icon icon-paper-plane"></button>
+                </div>
+            </div>
+            <div class="comments-list">
+                {foreach from=$comments key=$c item=$comment}
+                <div class="comment">
+                    <div class="avatar middle">
+                        {get_avatar id=$comment->author_id}
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <a href="#" class="name">{$comment->fname} {$comment->lname}</a>
+                            <span><abbr title="{$comment->date|date_format:"%Y-%m-%d %H:%I:%S"}" class="time"></abbr></span>
+                            <span class="spacer"></span>
+                            <div class="actions">
+                                <button class="icon fa icon-dot-3"></button>
+                            </div>
+                        </div>
+                        <div class="text">
+                            {$comment->text}
+                        </div>
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+        -->
+
+
+
+
     </div>
 </div>
